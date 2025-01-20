@@ -7,4 +7,6 @@ Contrario a lo que se pueda intuir, un sistema físico puede hacer que muchas co
 
 Otro buen ejemplo es el Motion Capture, que usa dispositivos de entrada como cámaras ayudadas con marcadores de los trajes de mocap, las cuales pasan los datos de posición a un computador para que este genere video en tiempo real de la persona que está usando el traje. ¿Pero sólo es eso, imagen y video?
 
-No, también se puede usar audio como información de entrada o salida, así como muchas más cosas. ¿Han 
+No, también se puede usar audio como información de entrada o salida, así como muchas más cosas. ¿Han visto los tapetes de piano en un centro comercial? al pisarlos no cae un martillo sobre un tubo perfectamente afinado, como en un piano tradicional, sino que digitalemente se analiza la tecla que ha sido presionada y se emite la nota corresponidente a través de unos parlantes. 
+
+Es interesante como, al concer el funcionamiento de los sistemas, podemos añadir aportes a los mismos, nuevas formas de ingresar y mostrar datos, de convertirlos, y también la inclusión de otros datos que puedan ser aceptados por una máquina, y es por eso que este curso, a modo de abrebocas, es tan importante en la carrera. 
