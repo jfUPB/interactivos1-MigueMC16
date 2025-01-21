@@ -8,13 +8,17 @@ Este tipo de diseños de patrones 3D cambiantes son muy útiles para poder crear
 Machina Infintum ha trabajado para varios artistas, Mastodon, Palaces, DJ Bhediya y, lo que me llevó a conocer su trabajo, Metallica. 
 El trabajo con Metallica consisitió en un video musical para la premier en cines de su canción "Crown Of Barbed Wire", y es remarcable como, pese a la generación de detalles "aleatorios" los artistas son capaces de construir formas concretas a partir de nebulosas de fractales. 
 
-(INSERTAR GIF)
+![](Metallica1.mp4)
 
-Este video se siente más a tono con la canción que el video oficial que acabaron sacando, donde la animación pierde por completo la fluidez, todo es visualmente menos atractivo, y no genera el gancho ni el ambiente oscuro que el video de Machina Infinitum
+Este video se siente más a tono con la canción que el video oficial que acabaron sacando, donde la animación pierde por completo la fluidez, todo es visualmente menos atractivo, y no genera el gancho ni el ambiente oscuro que el video de Machina Infinitum.
+
+![](Metallica2.mp4)
 
 Otros trabajos consisten en renders estáticos para conseguir imágenes de paisajes oníricos, experiencias más interactivas con domos y pequeños cortometrajes.
 
-(INSERTAR IMÁGENES DE RENDER)
+![](Render1.png)
+
+![](Render2.png)
 
 Para indagar más sobre Machina Infinitum, dejo el link a su página, donde hablan más a profundidad de los algoritmos de los fractales, tienen tutoriales sobre como usar plantillas y muestran más trabajos: 
 https://www.machina-infinitum.com/
