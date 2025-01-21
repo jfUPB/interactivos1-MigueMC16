@@ -1,5 +1,7 @@
 ### Código:
 
+![](SenoCoseno.gif)
+
 ```js
 let startAngle = 0;
 let startAngle2 = 180;
