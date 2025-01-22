@@ -1,5 +1,7 @@
 ### Código en P5.js
 
+En un inicio, creé un sketch en p5.js para saber como crear la funcionalidad deseada. p5.js me permite mover un círculo que haya creado sin necesidad del micro:bit
+
 ```js
 let position = 200;
 let circle1;
@@ -47,6 +49,8 @@ function keyPressed(){
 ```
 
 ### Código Final
+
+Ahora que ya tengo el boceto del código, me remito al código de la actividad 6 y los combino, poniendo lo que va en el set up del uno en el otro, añadiendo las variables globales, la clase círculo y sus funciones. Le cambio entonces la función de los botones de cambiar colores a añadir unidades al update del círculo, encargado de moverlo. El update se encarga de, en cada frame, revisar la posición del círculo y recibe como parámetro un número. El número que reciba, se le suma a la posición en x del círculo. Por último, pulo el código original substrayendo las partes del código que le incumbían al círculo que cambiaba de colores. 
 
 ```js
 let port;
