@@ -23,3 +23,6 @@ function draw() {
         text(dataRx, width / 2, height / 2);
     }
 ```
+
+#### Funcionamiento: 
+El micro:bit se carga con un código que logra comunicarse con el código en sketch.js a través del index del archivo de p5.js. Es capaz de enviar señales a dicho código, las cuales deben tener alguna funcionalidad o representación en sketch.js. Así mismo, este puede enviar mensajes a través de eventos para que el micro:bit los reciba y los interprete se haya programado desde un inicio. Estos mensajes pueden ser caracteres, números y demás. 
