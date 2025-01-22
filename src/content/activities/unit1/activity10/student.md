@@ -1,6 +1,6 @@
 ### Descripción del Código: 
 
-El código es exactamente el mismo del de la actividad 6, no realicé cambios en el de micro:bit pero si en el archivo de p5.js
+El código es exactamente el mismo del de la actividad 6, no realicé cambios en el de micro:bit pero si en el archivo de p5.js.
 El código original ya hacía lo que necesitaba pero dibujaba un círculo en vez de un cuadrado, así que sólo modifiqué esas líneas para que dibujara la figura deseada: 
 
 ```js
