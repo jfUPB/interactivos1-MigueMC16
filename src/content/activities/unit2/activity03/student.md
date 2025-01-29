@@ -14,7 +14,7 @@
 #### Botones: 
 Puedes hacer un contador, oprimiendo ambos botones para resetarlo, oprimiedo B para sumar y oprimiendo A para mostrar los números arriba de 10 deslizándose. 
 
-```Phyton
+```Python
 from microbit import *
 
 
@@ -47,7 +47,7 @@ while True:
 #### Micrófono: 
 Puedes hacer que se muestre un corazón en pantalla si aplaudes, usando variables de LOUD y QUIET, que es como el microbit identifica niveles de sonido.
 
-```Phyton
+```Python
 from microbit import *
 
 
@@ -68,7 +68,7 @@ while True:
 Puedes hacer un piedra, papel y tijeras con dos microbits. Se programan asignado a cada uno de los eventos un número de 0 a 2. Mientras agitas el micrbit, 
 este escoge un númeor random entre 0 y 2, y al dejar de agitarlo, mostrará en pantalla su elección.  
 
-```Phyton
+```Python
 from microbit import *
 
 import random
@@ -94,6 +94,6 @@ while True:
             display.show(Image.SCISSORS)
 ```
 
-```Phyton
+```Python
 ```
   
