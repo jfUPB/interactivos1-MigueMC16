@@ -7,7 +7,7 @@
 ### Salidas del Micro:bit 
 * Parlante o Speakers 🔈: Deja al usuario oir sonidos provenientes del microbit.
 * Luces Led 🚨: Reproduce imágenes de 5x5 pixeles, simulando una pantalla.
-* Indicador de Micrófono 🎤: Le deja saber al usuario cuando el micrófono está siendo activado.
+* Radio 📻: Mediante una antena de radio, el microbit manda señales a otros microbit.
 * Led Amarillo USB 🟡: Se enciende cuando el microbit está interactuando con un computador. 
 
 ### ¿Qué se puede hacer con las entradas?
@@ -94,6 +94,81 @@ while True:
             display.show(Image.SCISSORS)
 ```
 
+### ¿Qué se puede hacer con las salidas?
+
+#### Altavoz: 
+Puedes hacer un metrónomo que emita un sonido en un tick y descanse por un número determinado de ticks. 
+
 ```Python
+from microbit import *
+
+import music
+
+tempo = 100
+
+
+while True:
+
+    music.set_tempo(bpm=tempo)
+
+    music.play(['C4:1', 'r:3']) # play C for 1 tick, rest for 3 ticks
+
+    if button_a.was_pressed():
+
+        tempo -= 5
+
+    if button_b.was_pressed():
+
+        tempo += 5  
+```
+
+#### Luces Led: 
+Puedes hacer que el microbit reproduzca caras con las luces led. 
+
+```Python
+from microbit import *
+
+
+
+while True:
+
+    if button_a.is_pressed():
+
+        display.show(Image.HAPPY)
+
+    if button_b.is_pressed():
+
+        display.show(Image.SAD)
+```
+
+#### Radio: 
+Puedes enviar de un micro a otro la imagen de un pato. Si agitas el microbit envía un mensaje que indica duck. Mediante el radio, y siempre que los dos microbit
+estén en el mismo grupo de onda, el otro microbit recibirá el mensaje de duck y reproducirá la imagen de un pato. 
+
+```Python
+from microbit import *
+
+import radio
+
+radio.config(group=23)
+
+radio.on()
+
+
+
+while True:
+
+    message = radio.receive()
+
+    if message:
+
+        display.show(Image.DUCK)
+
+    if accelerometer.was_gesture('shake'):
+
+        display.clear()
+
+        radio.send('duck')
+
 ```
   
