@@ -4,7 +4,7 @@ Quiero hacer un código en el cual reproduzca música en el microbit mientras qu
 
 #### Código que voy a usar
 
-```Python
+```py
 from microbit import *
 import music
 while True:
@@ -29,7 +29,7 @@ No funcionó. Eso es por que estoy redactando music.play y no music.play(). Esos
 una variable a entenderlo como función. 
 
 #### Corrección de código #1
-```Python
+```py
 from microbit import *
 import music
 while True:
@@ -54,7 +54,7 @@ Me gustaría que la música parase oprimiendo de nuevo el botón. Mi lógica pas
 Cuando sea par, habrá un if que comprobará esto y dentendrá la música. Cuando sea impar, la música sonará. 
 
 #### Nuevo código
-```Python
+```py
 from microbit import *
 import music
 countA = 1
@@ -99,7 +99,7 @@ de los botones.
 
 #### Código Corregido
 
-```Python
+```py
 from microbit import *
 import music
 
@@ -152,7 +152,7 @@ while True:
 
 #### Código Nuevo
 
-```Python
+```py
 from microbit import *
 import music
 
