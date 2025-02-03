@@ -6,7 +6,7 @@ representan una de las líneas en la pantalla de mmicrobit. Cinco líneas de 5 l
 El 0 representa nula luminosidad y 9 toda la luz. Por ello, se le puede indicar al código que led se debe encender para crear una imagen y, posteriormente,
 una secuencia de imágenes. 
 
-```Python
+```py
 from microbit import *
 
 while True:
@@ -36,7 +36,7 @@ while True:
 
 Básicamente usé el código de la página como base y creé una nueva animación con 8 imágenes y un sleep menor para que la secuencia fuera más rápida. 
 
-```Python
+```py
     from microbit import *
 
 while True:
