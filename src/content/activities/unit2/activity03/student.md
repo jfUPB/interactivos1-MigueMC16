@@ -14,7 +14,7 @@
 #### Botones: 
 Puedes hacer un contador, oprimiendo ambos botones para resetarlo, oprimiedo B para sumar y oprimiendo A para mostrar los números arriba de 10 deslizándose. 
 
-```Python
+```py
 from microbit import *
 
 
@@ -47,7 +47,7 @@ while True:
 #### Micrófono: 
 Puedes hacer que se muestre un corazón en pantalla si aplaudes, usando variables de LOUD y QUIET, que es como el microbit identifica niveles de sonido.
 
-```Python
+```py
 from microbit import *
 
 
@@ -68,7 +68,7 @@ while True:
 Puedes hacer un piedra, papel y tijeras con dos microbits. Se programan asignado a cada uno de los eventos un número de 0 a 2. Mientras agitas el micrbit, 
 este escoge un númeor random entre 0 y 2, y al dejar de agitarlo, mostrará en pantalla su elección.  
 
-```Python
+```py
 from microbit import *
 
 import random
@@ -99,7 +99,7 @@ while True:
 #### Altavoz: 
 Puedes hacer un metrónomo que emita un sonido en un tick y descanse por un número determinado de ticks. 
 
-```Python
+```py
 from microbit import *
 
 import music
@@ -125,7 +125,7 @@ while True:
 #### Luces Led: 
 Puedes hacer que el microbit reproduzca caras con las luces led. 
 
-```Python
+```py
 from microbit import *
 
 
@@ -145,7 +145,7 @@ while True:
 Puedes enviar de un micro a otro la imagen de un pato. Si agitas el microbit envía un mensaje que indica duck. Mediante el radio, y siempre que los dos microbit
 estén en el mismo grupo de onda, el otro microbit recibirá el mensaje de duck y reproducirá la imagen de un pato. 
 
-```Python
+```py
 from microbit import *
 
 import radio
