@@ -11,7 +11,7 @@ garantiza que el cógigo sea cíclico y que nunca salga de la máquina de estado
   Resultados Esperados: Happy, Smile, Sad, Smile, Happy, Smile.
 * Dejar correr durante dos estados ➡️ Oprimir A ➡️ Oprimir A ➡️ Oprimir A ➡️ Oprimir A 
   Resultados Esperados: Happy, Smile, Happy, Sad, Smile, Happy.
-* Dejar correr durante dos estados ➡️ Oprimir A ➡️ dejar correr durante tres estados ➡️ Oprimir A
+* Dejar correr durante dos estados ➡️ Oprimir A ➡️ dejar correr durante cuatro estados ➡️ Oprimir A
   Resultados Esperados: Happy, Smile, Happy, Smile, Sad, Happy, Sad.
 
 ### Resultados Obtenidos
