@@ -1,6 +1,6 @@
 ### Código Inicial
 
- ` ` ` py
+```py
 from microbit import *
 import utime
 import music
@@ -37,5 +37,5 @@ while True:
             i += 1000
         elif countdown == 0:
             music.play(music.FUNK, wait=False, loop=False)
- ` ` `
+ ```
      
