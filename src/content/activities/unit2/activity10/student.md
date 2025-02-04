@@ -12,4 +12,12 @@ garantiza que el cógigo sea cíclico y que nunca salga de la máquina de estado
 * Dejar correr durante dos estados ➡️ Oprimir A ➡️ Oprimir A ➡️ Oprimir A ➡️ Oprimir A 
   Resultados Esperados: Happy, Smile, Happy, Sad, Smile, Happy.
 * Dejar correr durante dos estados ➡️ Oprimir A ➡️ dejar correr durante tres estados ➡️ Oprimir A
-  Resultados Esperados: Happy, Smile, Happy, Smile, Sad, Happy, Sad. 
+  Resultados Esperados: Happy, Smile, Happy, Smile, Sad, Happy, Sad.
+
+### Resultados Obtenidos
+
+* Primer vector: Pasa la prueba. ✔️
+* Segundo vector: Pasa la prueba. ✔️
+* Tercer vector: Pasa la prueba. ✔️
+El código es robusto y el flujo de estados está bien implementado.
+
