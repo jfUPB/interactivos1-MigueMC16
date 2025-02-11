@@ -92,3 +92,5 @@ while True:
 * Se reemplazó el ciclo for de el estado de COUNT por un ciclo while y se añadió un pequeño estado INIT por motivos de escalabilidad, así, si hay más variables que se tengan que inicializar antes de entrar a la configuración, se pueden añadir ahí.
 * Se usaron los métodos max() y min() para limitar la cantidad de segundos que se pueden poner en CCONFIG.
 * Dividir countdown entre 1000 devolvía un float que reproducía en pantalla los números así: 20.0; usando int, ahora se resproducen sin el decimal: 20.
+
+### Enlace: https://youtu.be/zE-RZ5Woe3c
