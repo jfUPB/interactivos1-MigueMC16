@@ -9,7 +9,7 @@ Send Love, el ejemplo que propone esta unidad es un ejemplo de envío de datos s
 que tener esa fundamentación. Mi idea es, como he hecho a lo largo de esta materia, reutilizar código y adaptarlo a mis necesidades actuales. Así, en vez e ordenar al mirco:bit
 que me muestre un corazón, le pediré que me mande letras en función de lo que decida el usuario en p5.js.
 
-### Código Modificado p5.js
+### Código Referencia p5.js
 
 ```js
 let port;
@@ -70,7 +70,7 @@ function sendBtnClick() {
 }
 ```
 
-### Código Modificado python
+### Código Referencia python
 
 ```py
 from microbit import *
@@ -93,3 +93,72 @@ while True:
             if data[0] == ord('h'):
                 uart.write(D)
 ```
+
+### Código Referencia p5.js
+
+```js
+let port;
+let connectBtn;
+let sendBtn;
+
+function setup() {
+    createCanvas(400, 400);
+    background(220);
+
+    port = createSerial();
+    
+    connectBtn = createButton('Connect to micro:bit');
+    connectBtn.position(100, 300);
+    connectBtn.mousePressed(connectBtnClick);
+    
+    sendBtn = createButton('Send h');
+    sendBtn.position(220, 300);
+    sendBtn.mousePressed(sendBtnClick);
+}
+
+function draw() {
+    if (!port.opened()) {
+        connectBtn.html('Connect to micro:bit');
+    } else {
+        connectBtn.html('Disconnect');
+    }
+}
+
+function connectBtnClick() {
+    if (!port.opened()) {
+        port.open('MicroPython', 115200);
+    } else {
+        port.close();
+    }
+}
+
+function sendBtnClick() {
+    if (port.opened()) {
+        port.write('h');  // Enviar 'h' al micro:bit
+    }
+}
+
+```
+
+### Código Modificado python
+
+```py
+from microbit import *
+
+uart.init(baudrate=115200)
+
+while True:
+    if uart.any():
+        data = uart.read(1)
+        if data and data[0] == ord('h'):  # Si recibe 'h'
+            display.show('h')  # Muestra "h"
+            sleep(5000)  # Mantiene la "h" por 5 segundos
+            display.clear()  # Limpia la pantalla
+
+```
+
+### ¿Qué cambió?
+
+El microbit no solo estaba recibiendo datos del computador, sino que era capaz de enviar. Así que por motivos de simplicidad, elimié las partes del codigo que en micropython enviaban datos y en java script leían. 
+Además, mejoré la interfaz de java script para quq solo mostrara un botón, el de enviar la letra h. Cuando el microbit lo reciba, va a repdroducir una h en pantalla durante 5 segundos (5000 ticks) y después simplemente
+limpiaría pantalla a la espera de un nuevo envío. 
