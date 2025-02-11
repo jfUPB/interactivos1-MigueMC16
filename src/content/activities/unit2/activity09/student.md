@@ -53,3 +53,4 @@ while True:
         break
     utime.sleep_ms(100)
 ```
+El semáfor incia en verde y usa utime() para poder medir el tiempoque lleva en ese estado. Si excede los 5000 ticks que le pedí que durara, pasará al siguiente, que es amarillo, y realizará el mismo proceso. Después a rojo, y esto se repetirá en loop hasta que precione el touch logo, en el cual, el looop se detiene en el color que estuviera puesto en el momento. Como los eventos en los estados y los estados en sí son prácticamente idénticos (lo único cambiante es la letra mostrada y la duración) el código se agrupó de forma distinta a definir cada estado como un bloque aparte del otro.
