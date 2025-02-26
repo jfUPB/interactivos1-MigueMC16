@@ -103,7 +103,7 @@ while True:
     tareaEventos()
 
 ```
-
+```py
 # Imports go at the top
 from microbit import *
 import utime
@@ -216,4 +216,5 @@ def tareaEventos():
 while True:
     tareaEventos()  # Detecta los eventos
     tareaBomba()  # Maneja la lógica del juego
+```
 
