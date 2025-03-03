@@ -1,6 +1,8 @@
 ### Lógica de Programación
 #### Arquitectura del código propuesto
 
+Como ahora hay que quitar la lectura directa de las tareas de la bomba de los botones de Microbit, reemplacé en los condicionales por las variables booleanas "eventA, eventB, eventS, eventT" y en la tarea de eventops se leen los botones de Microbit para cambiar los valores de los booleanos, que inician en False
+
 ```py
 # Imports go at the top
 from microbit import *
@@ -103,6 +105,11 @@ while True:
     tareaEventos()
 
 ```
+
+### Problemas con el Código
+
+No hay forma de que las variables booleanas sean leídas por tareabomba, más específicamente, no puede leer cuando estas cambian de valor, por lo que nunca sucede nada y el microbit solo muestra el número 20 constantemente. Para arreglar esto, opté por declarar como globales a las tareas. En Microbit, dicha declaración funciona distinto a C++, en donde simplemente basta con ponerlas en la parte de arriba del código antes de declarar métodos y tareas. 
+
 ```py
 # Imports go at the top
 from microbit import *
@@ -216,5 +223,38 @@ def tareaEventos():
 while True:
     tareaEventos()  # Detecta los eventos
     tareaBomba()  # Maneja la lógica del juego
+```
+### Refinamiento del código
+
+Para que el anterior código funcione, uno necestia dejar oprimido los botones o presionarlos múltiples veces para que el microbit tenga la oportunidad de registrar la acción. Esto es por el uso de IsPressed en eventos.
+El programa tiene un tiempo muy corto para realizar todo lo que le pido si el botón es presionado en un isntante específico. Hace las comprobaciones en un santiamén y si no se presiona el botón durante esas comprobaciones, no va a realizar nada. Por eso debe usarse WasPressed. Así, en vez de revisar si el botón está siendo presionado, revisa si fue presionado antes de cada iteración, eliminando la necesidad de dejar el botón oprimido. Ahora sólo falta añadir los datos que llegan por serial y el código está listo.
+
+```py
+# Función de eventos
+def tareaEventos():
+    global eventA, eventB, eventT, eventS  # Declarar las variables globales
+    if uart.any(): #Revisa si hay data en el puerto serial
+        data = uart.read(1) #Lee un bit de ese dato
+        if data: #Comvierte el dato en vector
+            if data[0] == ord("A"): #La primera pocisión de un vector es 0. La convierte a letra
+                eventA = True
+            elif data[0] == ord("B"):
+                eventB = True  
+            elif data[0] == ord("S"):
+                eventS = True  
+            elif data[0] == ord("T"):
+                eventT = True  
+    
+    if button_a.was_pressed():
+        eventA = True
+    
+    if button_b.was_pressed():
+        eventB = True
+    
+    if pin_logo.is_touched():
+        eventT = True
+    
+    if accelerometer.was_gesture('shake'):
+        eventS = True
 ```
 
