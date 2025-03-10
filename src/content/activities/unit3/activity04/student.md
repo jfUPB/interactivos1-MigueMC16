@@ -6,21 +6,24 @@ from microbit import *
 import utime
 import music
 
+# Estados de la máquina
 STATE_INIT = 0
 STATE_CONFIG = 1
 STATE_COUNT = 2
 STATE_WIN = 3
 STATE_LOOSE = 4
+
 COUNT_INTERVAL = 1000
-waitingTime = 1000
+waitingTime = utime.ticks_ms()  # Inicializa correctamente la espera
 Password = ["A", "B", "A"]
 solution = []
 
+# Estado inicial
 current_state = STATE_CONFIG
 countdown = 20000  # Inicia en 20 segundos
-music_playing = False  # Variable para evitar que la música
+music_playing = False  # Para evitar repetir la música
 
-# Declaración de las variables globales
+# Variables globales de eventos
 eventA = False
 eventB = False
 eventT = False
@@ -28,78 +31,86 @@ eventS = False
 
 def tareaBomba():
     global current_state, countdown, music_playing, eventA, eventB, eventT, eventS, waitingTime, solution, Password
-    music_playing = False  # Variable para evitar que la música
-    
+
     if current_state == STATE_INIT:
         countdown = 20000  # Reinicia el contador a 20 segundos
         current_state = STATE_CONFIG
         music_playing = False  # Reinicia la variable de música
         music.stop()
-
+    
     if current_state == STATE_CONFIG:
-        if eventA:  # eventA is true
+        if eventA:  
             countdown = min(countdown + 1000, 60000)  # Máximo 60 segundos
             display.show(int(countdown / 1000))
-            eventA = False  # Reset eventA
+            eventA = False  
 
-        elif eventB:  # eventB is true
+        elif eventB:  
             countdown = max(countdown - 1000, 1000)  # Mínimo 1 segundo
             display.show(int(countdown / 1000))
-            eventB = False  # Reset eventB
+            eventB = False  
 
-        elif eventT:  # eventT is true
+        elif eventT:  
             current_state = STATE_COUNT
-            eventT = False  # Reset eventT
+            display.clear()  # Limpia la pantalla antes de iniciar la cuenta regresiva
+            eventT = False  
 
         else:
             display.show(int(countdown / 1000))
 
     if current_state == STATE_COUNT:
-        
-        if utime.ticks_diff(utime.ticks_ms(),waitingTime) > COUNT_INTERVAL:
-            countdown = countdown-1000
-            waitingTime=utime.ticks_ms
+        display.clear()
+        # Control de la cuenta regresiva
+        if utime.ticks_diff(utime.ticks_ms(), waitingTime) > COUNT_INTERVAL:
+            countdown -= 1000
+            waitingTime = utime.ticks_ms()
+            display.set_pixel(2, 2, 9)  # Muestra un punto en el centro
+            sleep(100)
+            display.clear()
             
-        elif eventA:
-            if len(solution) < len(Password):  
-               solution.append("A")
-               eventA = False
-        elif eventB:
-            if len(solution) < len(Password):  
-               solution.append("B")
-               eventA = False
-        elif len(solution) == len(Password):
-           if solution == Password:
-              current_state = STATE_WIN
-           else:
-              solution = []
-        
+        if eventA and len(solution) < len(Password):  
+            solution.append("A")
+            eventA = False
+
+        if eventB and len(solution) < len(Password):  
+            solution.append("B")
+            eventB = False
+
+        # Verificación de la clave
+        if len(solution) == len(Password):
+            if solution == Password:
+                current_state = STATE_WIN
+            else:
+                solution = []  # Reset para otro intento
+
         if countdown <= 0:
             current_state = STATE_LOOSE
 
-        if eventS:  # eventS is true
-           sleep(100)
-           current_state = STATE_INIT
+        if eventS:
+            eventS = False
+            current_state = STATE_INIT
 
     if current_state == STATE_WIN:
         display.show(Image.HAPPY)
         if not music_playing:
-            music.play(music.BIRTHDAY, wait=False)
             music_playing = True
+            music.play(music.BIRTHDAY, wait=False)  # Se reproduce solo una vez
+        
         if eventS: 
-           current_state = STATE_INIT
+            current_state = STATE_INIT
             
     if current_state == STATE_LOOSE:
         display.show(Image.SAD)
         if not music_playing:
-            music.play(music.DADADADUM, wait=False)
             music_playing = True
+            music.play(music.DADADADUM, wait=False)  # Se reproduce solo una vez
+        
         if eventS: 
-           current_state = STATE_INIT
+            current_state = STATE_INIT
 
 # Función de eventos
 def tareaEventos():
-    global eventA, eventB, eventT, eventS  # Declarar las variables globales
+    global eventA, eventB, eventT, eventS  
+
     if uart.any():
         data = uart.read(1)
         if data:
@@ -111,21 +122,19 @@ def tareaEventos():
                 eventT = True
             if data[0] == ord('S'):
                 eventS = True
+
     if button_a.was_pressed():
         eventA = True
-    
     if button_b.was_pressed():
         eventB = True
-    
     if pin_logo.is_touched():
         eventT = True
-    
     if accelerometer.was_gesture('shake'):
         eventS = True
 
 while True:
-    tareaEventos()  # Detecta los eventos
-    tareaBomba()  # Maneja la lógica del juego
+    tareaEventos()  
+    tareaBomba()
 ```
 
 ### Código en Javascript
