@@ -1,6 +1,6 @@
 ### Código en p5.js
 
-```py
+```js
 // Estados
 const STATE_INIT = 0;
 const STATE_CONFIG = 1;
