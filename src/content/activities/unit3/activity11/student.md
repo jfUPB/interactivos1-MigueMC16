@@ -2,21 +2,21 @@
 
 #### Qué conceptos se me daban bien de antemano: 
 
-☑️ Las estructuras de control
-☑️ El manejo de variables globales y locales
-☑️ La lógica booleana
-☑️ Los arreglos 
+* ☑️ Las estructuras de control
+* ☑️ El manejo de variables globales y locales
+* ☑️ La lógica booleana
+* ☑️ Los arreglos 
 
 #### Qué conceptos aprendí pese a las dificultades:
 
-🟨 La lógica de los estados
-🟨 El ingreso de datos seriales
+* 🟨 La lógica de los estados
+* 🟨 El ingreso de datos seriales
 
 #### Qué conceptos me causan problemas:
 
-✖️ El uso del reloj interno de un programa
-✖️ La adaptación a un nuevo paradigma de programación
-✖️ La concurrencia y como no bloquear el código
+* ✖️ El uso del reloj interno de un programa
+* ✖️ La adaptación a un nuevo paradigma de programación
+* ✖️ La concurrencia y como no bloquear el código
 
 ### Estrategias de solución: 
 
