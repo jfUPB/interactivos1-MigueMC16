@@ -32,3 +32,17 @@ function serialEvent() {
 ```
 
 Luego, vamos a MicroPython y usamos el siguiente código para pasarlo a microbit y que sepa qué es lo que tiene que escribir en el serial una vez presionemos los botones:
+
+```py
+from microbit import *
+
+while True:
+    if button_a.was_pressed():
+        uart.write("A\n")
+    if button_b.was_pressed():
+        uart.write("B\n")
+    if pin_logo.is_touched():
+        uart.write("T\n")
+    if accelerometer.was_gesture('shake'):
+        uart.write("S\n")
+```
