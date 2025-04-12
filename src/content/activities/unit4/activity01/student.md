@@ -1,6 +1,8 @@
 ### Ejemplo 1:
 #### ¿Qué me llamó la atención?
 
+![](RastrodeColores.GIF)
+
 #### Mis modificaciones al código
 
 ```py
