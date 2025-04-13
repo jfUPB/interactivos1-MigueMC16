@@ -1,6 +1,6 @@
 ## ¿Cómo funciona el código?
 
-### Antes de Empezar: Qué hace el código: 
+### Antes de Empezar: ¿Qué hace el código?
 
 El códgio dibuja líneas al presionar el mouse, tomando la posición de este como centro. Dichas líneas se distribuyen en una circunferencia. Se dibujan varias en diversos ángulos que
 van variando de acuerdo a una velocidad angular. Hay factores que pueden variar dependiendo del usuario, como el estilo de línea, el color, el tamaño, etc. 
