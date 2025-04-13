@@ -75,7 +75,7 @@ Cada línea ahora va a ser coloreada con un estandar Hue, Saturation, Value, y v
 
 Me gusta el efecto visual generado, y todo funciona con ¡trigonometría! Para que la pupila apunte al mouse hay que hayar el ángulo generado entre estos dos y para ello podemos graficarlos en un plano cartesiando, ver sus coordenadas x y y, armar un triángulo rectángulo con la pupila y el mouse y encontrar los catetos con sus coordenadas para luego usar una fórmula que nos descifra el ángulo usando los catetos, que sería la fórmula de arco tangente. Sé que suena difícil, así que lo grafiqué para que se entienda: 
 
-Aquí la imagen
+![](Explicación.jpeg)
 
 El enlace: https://editor.p5js.org/LaWikipedia/full/dXJQqiUjU
 
@@ -176,7 +176,7 @@ class Fly {
 
 Añadí una clase mosca para que persigan los ojos a la mosca. El movimiento de la mosca depende de donde esté el mouse, es verdad, pero acelera en función a la posición del mouse, no se ubica exactamente donde está él, y así puedo medir qué tan responsivo es el código. Lógicamente, ya el cálculo de la arco tangente no es con los componentes x y y del mouse, sino de la mosca. Cabe resaltar que la clase ya estaba hecha gracias a la clase de Simulación de Sistemas Físicos. 
 
-Aquí el gif
+![](AimPropio.gif)
 
 El enlace: https://editor.p5js.org/LaWikipedia/full/IHeEkkDQd
 
