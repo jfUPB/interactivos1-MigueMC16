@@ -45,6 +45,8 @@ No me gustaban los bordes grises, así que los removí, y cambié la forma en la
 
 A medida que se mueve el mouse ocurren dos cosas y me encanta el efecto visual generado: si mueves el mouse en el eje X, va a aumentar el radio del círculo que se está generando con las líneas rectas (todo visible en le gif de más abajo) y la cantidad de líneas rectas está dada por el movimiento en el eje Y, con una función map, que agarra un valor que está entre un mínimo y un máximo, y devuleve uno proporcional a ese valor entre dos nuevos mínimos y máximos. En este código, la cantidad de líneas se llama circleResolution y su valor esta dado por la función map. El enlace acá: https://editor.p5js.org/LaWikipedia/full/73XrSeEO1
 
+![](LineasRotatorias.gif)
+
 #### Mis modificaciones al código
 
 ```py
