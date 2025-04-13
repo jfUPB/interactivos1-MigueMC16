@@ -176,7 +176,7 @@ class Fly {
 
 Añadí una clase mosca para que persigan los ojos a la mosca. El movimiento de la mosca depende de donde esté el mouse, es verdad, pero acelera en función a la posición del mouse, no se ubica exactamente donde está él, y así puedo medir qué tan responsivo es el código. Lógicamente, ya el cálculo de la arco tangente no es con los componentes x y y del mouse, sino de la mosca. Cabe resaltar que la clase ya estaba hecha gracias a la clase de Simulación de Sistemas Físicos. 
 
-![](AimPropio.gif)
+![](Aim(Propio).gif)
 
 El enlace: https://editor.p5js.org/LaWikipedia/full/IHeEkkDQd
 
