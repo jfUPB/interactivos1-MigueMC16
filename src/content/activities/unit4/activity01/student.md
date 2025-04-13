@@ -68,10 +68,12 @@ A medida que se mueve el mouse ocurren dos cosas y me encanta el efecto visual g
 
 Cada línea ahora va a ser coloreada con un estandar Hue, Saturation, Value, y va a cambiar únicamente el valor del Hue por ccada línea. Va a funcionar como una proporción en el ciclo for: El ciclo for tiene un valor que oscila entre 0 y circleResolution, que es i, y queiro que cada línea se coloree en el orden correcto del espectro de color, haciendo que la última siempre sea 360 (el valor máximo del Hue) y la primera siempre sea 0 (el mínimo del Hue). Así que tengo dos valores qye van a oscilar entre dos topes y quiero que sean proporcionales entre si. Para esto, me sirve la función map. Digamos que circleResolution es 20 y estoy con i = 5. Eso significa que estoy a un cuarto del camino entre 0 y 20. Así mismo debería estar el Hue, a un cuarto de camino entre 0 y 360, osea que el Hue en la recta 5 sería de 9, y así con todas. El enlace: https://editor.p5js.org/LaWikipedia/full/NFdltnmTQ
 
+![](LineasRotatorias(Propio).gif)
+
 ### Ejemplo 3:
 #### ¿Qué me llamó la atención?
 
-![](ÁrboldePoisson.gif)
+![](Aim.gif)
 
 #### Mis modificaciones al código
 
