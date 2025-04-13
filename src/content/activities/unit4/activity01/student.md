@@ -73,12 +73,110 @@ Cada línea ahora va a ser coloreada con un estandar Hue, Saturation, Value, y v
 ### Ejemplo 3:
 #### ¿Qué me llamó la atención?
 
+Me gusta el efecto visual generado, y todo funciona con ¡trigonometría! Para que la pupila apunte al mouse hay que hayar el ángulo generado entre estos dos y para ello podemos graficarlos en un plano cartesiando, ver sus coordenadas x y y, armar un triángulo rectángulo con la pupila y el mouse y encontrar los catetos con sus coordenadas para luego usar una fórmula que nos descifra el ángulo usando los catetos, que sería la fórmula de arco tangente. Sé que suena difícil, así que lo grafiqué para que se entienda: 
+
+Aquí la imagen
+
+El enlace: https://editor.p5js.org/LaWikipedia/full/dXJQqiUjU
+
 ![](Aim.gif)
 
 #### Mis modificaciones al código
 
 ```py
+let fly;
+
+function setup() {
+  createCanvas(400, 400);
+  fly = new Fly();
+  // Set angle mode so that atan2() returns angles in degrees
+}
+
+function draw() {
+  background(0);
+  fly.update();
+  fly.checkEdges();
+  fly.show();
+}
+
+class Fly {
+  constructor() {
+    this.position = createVector(random((10), (width-10)), random(10, height-10));
+    this.velocity = createVector(1, 1);
+    
+
+  }
+
+  update() {
+    this.acceleration = createVector(mouseX/1000, mouseX/1000);
+    this.position.add(this.velocity);
+    this.velocity.add(this.acceleration);
+  }
+
+  show() {
+    
+    stroke(0);
+    strokeWeight(2);
+    fill(10, 225, 225);
+    ellipse(this.position.x -28, this.position.y-10, 50, 20);
+    
+    stroke(0);
+    strokeWeight(2);
+    fill(10, 225, 225);
+    ellipse(this.position.x +28, this.position.y-10, 50, 20);
+    
+    stroke(0);
+    strokeWeight(1.5);
+    fill(0);
+    line(this.position.x-38, this.position.y-10, this.position.x+38, this.position.y-10);
+    
+    stroke(0);
+    strokeWeight(2);
+    fill(50, 20, 150);
+    circle(this.position.x, this.position.y, 48);
+    
+    stroke(0);
+    strokeWeight(1);
+    fill(255);
+    circle(this.position.x, this.position.y, 25);
+    
+    stroke(0);
+    strokeWeight(0.5);
+    fill(0);
+    circle(this.position.x, this.position.y, 15);
+    
+    stroke(255);
+    strokeWeight(0.5);
+    fill(255);
+    circle(this.position.x-5, this.position.y-5, 10);
+    
+    stroke(0);
+    strokeWeight(1.5);
+    fill(250, 100, 150);
+    arc(this.position.x, this.position.y+15, 20, 15, (2*PI),PI , CHORD);
+    stroke(0);
+    strokeWeight(1);
+    fill(255);
+    arc(this.position.x, this.position.y+15, 20, 7, (2*PI),PI , CHORD);
+   
+  }
+
+  checkEdges() {
+     if (this.position.x > width-50 || this.position.x < 50) {
+    this.velocity.x = this.velocity.x * -1;
+  }
+  if (this.position.y > height-50 || this.position.y < 50) {
+    this.velocity.y = this.velocity.y * -1;
+  }
+  }
+}
 ```
 
 #### ¿Qué cambios hice?
+
+Añadí una clase mosca para que persigan los ojos a la mosca. El movimiento de la mosca depende de donde esté el mouse, es verdad, pero acelera en función a la posición del mouse, no se ubica exactamente donde está él, y así puedo medir qué tan responsivo es el código. Lógicamente, ya el cálculo de la arco tangente no es con los componentes x y y del mouse, sino de la mosca. Cabe resaltar que la clase ya estaba hecha gracias a la clase de Simulación de Sistemas Físicos. 
+
+Aquí el gif
+
+El enlace: https://editor.p5js.org/LaWikipedia/full/IHeEkkDQd
 
