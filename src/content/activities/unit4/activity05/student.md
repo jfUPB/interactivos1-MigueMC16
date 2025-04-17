@@ -1,4 +1,4 @@
-### Hallazgos
+### Aplicación de lo Aprendido
 
 #### Enlace a la Aplicación Original
 
