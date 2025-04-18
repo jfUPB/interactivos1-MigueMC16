@@ -4,12 +4,12 @@
 
 Se comunican a través del puerto serial. Se establecen variables que faciliten la conección en p5.js: 
 
-```py
+```js
 let port;
 let connectBtn;
 let microBitConnected = false;
 ```
-```py
+```js
 ```
 #### ¿Cómo es el paquete de datos enviado por el microbit?
 
@@ -19,7 +19,7 @@ El formato de datos es ASCII y plantea enviar entre corchetes cuatro datos del m
 
 Hay dos partes importantes para que esto se logre: Lo primero es recibir los datos desde el serial y hacer que el dato 0,0 coincida en el centro del lienzo (por eso
 se le suma windowWidth/2 y windowHeight/2)
-```py
+```js
  if (values.length == 4) {
           microBitX = int(values[0]) + windowWidth / 2;
           microBitY = int(values[1]) + windowHeight / 2;
@@ -27,7 +27,7 @@ se le suma windowWidth/2 y windowHeight/2)
 
 Ahora que tenemos los datos pulidos, podemos hacer que las coordenadas x y y que usa la función draw para dibujar, coincidan con los valores microBitX y microBitY, 
 para que los datos que llegan de microbit, ahora sí, controlen la aplicación. 
-```py
+```js
   if (microBitAState === true) {
         let x = microBitX;
         let y = microBitY;
