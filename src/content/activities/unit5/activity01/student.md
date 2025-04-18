@@ -5,8 +5,12 @@
 Se comunican a través del puerto serial. Se establecen variables que faciliten la conección en p5.js: 
 
 ```py
+let port;
+let connectBtn;
+let microBitConnected = false;
 ```
-
+```py
+```
 #### ¿Cómo es el paquete de datos enviado por el microbit?
 
 El formato de datos es ASCII y plantea enviar entre corchetes cuatro datos del microbit separados con comas y con un salto de línea, para que, siguiendo este protocolo, al llegar al sketch se pueda hacer una diferenciación de los datos con las comas y se haga tambien una diferenciación de los paquetes de datos gracias al salto de línea. 
