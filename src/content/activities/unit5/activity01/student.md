@@ -33,6 +33,7 @@ function connectBtnClick() {
 El formato de datos es ASCII y plantea enviar entre corchetes cuatro datos del microbit separados con comas y con un salto de línea, para que, siguiendo este protocolo, al llegar al sketch se pueda hacer una diferenciación de los datos con las comas y se haga tambien una diferenciación de los paquetes de datos gracias al salto de línea. 
 
 ```py
+data = "{},{},{},{}\n".format(xValue, yValue, aState,bState)
 ```
 
 #### ¿Qué parte del sketch convierte datos del microbit a coordenadas?
