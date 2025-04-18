@@ -55,4 +55,28 @@ para que los datos que llegan de microbit, ahora sí, controlen la aplicación.
 ```
 #### ¿Cómo se generan los eventos A pressed y B released?
 
+```js
+```
+
+```js
+function updateButtonStates(newAState, newBState) {
+  // Generar eventos de keypressed
+  if (newAState === true && prevmicroBitAState === false) {
+    // create a new random color and line length
+    lineModuleSize = random(50, 160);
+    // remember click position
+    clickPosX = microBitX;
+    clickPosY = microBitY;
+    print("A pressed");
+  }
+  // Generar eventos de key released
+  if (newBState === false && prevmicroBitBState === true) {
+    c = color(random(255), random(255), random(255), random(80, 100));
+    print("B released");
+  }
+
+  prevmicroBitAState = newAState;
+  prevmicroBitBState = newBState;
+}
+```
 ### Dibujos Realizados
