@@ -7,6 +7,7 @@
 00 00 00 00 00 00
 00 00 00 00 00 00
 00 00 00 00 00 00
+
 ...
 Si empiezo a mandar datos, un paquete que contenda xValue = 650, yValue = 77, A = True y B = False, se muestra esto:
 
