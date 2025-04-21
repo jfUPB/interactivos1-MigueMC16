@@ -22,3 +22,6 @@ Creo que se ve así por que a los datos numéricos que se están enviando le ped
 Cómo ya se mencionó previamente, se envían 6 bits. El formato es muy explicativo: Los dos primeros datos con el formato (2b2h) son datos numéricos que piden los bits más significativos y ahí van 4. El 2h simplemente indica que estamos mandando dos booleanos y como un booleano solo tiene dos estados, solo necesita un un bit para expresar true (01) o false (00).
 
 ### Experimento 3
+
+La diferencia entre un formato ASCII y un formato binario es que en ASCII es, en un inicio, más fácil de leer, pero cada pequeño símbolo que representa un dato en un paquete de datos, se envía un bit. Además, se envía un bit para representar un salto de línea, una coma, si hay un número de tres cifras pesa más que uno de dos...
+Con un formato binario, se tiene mayor control sobre el número de bits que se van a enviar y, aunque no sean fáciles de leer en un inicio, es mucho más ligero el paquete de datos que se manda. 
