@@ -84,3 +84,6 @@ function updateButtonStates(newAState, newBState) {
 }
 ```
 ### Dibujos Realizados
+
+![](Dibujo1.png)
+![](Dibujo2.png)
