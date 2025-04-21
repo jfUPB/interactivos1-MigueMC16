@@ -1,6 +1,7 @@
 ### Experimento 1
 
 * El resultado que entrega el Serial en modo texto es... nada, no se ve nada. Quizá se deba a que el formato que estamos mandando no es compatible con una lectura de texto ASCII
+* 
 * En modo Hexadecimal se ve esto:
 
 00 00 00 00 00 00
