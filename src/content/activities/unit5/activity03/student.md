@@ -14,3 +14,5 @@ En esta versión de lectura binaria del código, la lectura iniciará siempre qu
 Puede deberse a que, como ahora con binario podemos enviar la misma información con menos bites en comparación de ASCII, el microbit pueda hacer sends mucho más rápido de lo que p5js puede leer (por que estamos trabajando también con el mismo sleep usado para ASCII) entonces eso hace que se almacenen datos erróneos. 
 
 ### ¿Qué se ve después de los cambios?
+
+Ahora en los códigos hay varias cosas distintas: El microbit envía un paquete mucho más completo, donde el primer bite es un encabezado (0xAA) y el último es una comprobación de que la suma de los 6 datos recibidos sea una suma válida para demarcar el final de un paquete completo. Entonces, al llegar a p5js, se buscan el bite de encabezado y se descartan los que estén antes de este. Una vez lo encuentra, divide el vector del paquete de datos y hace lo siguiente: aparta las posiciones 1 a la 6 por que esos son los datos a validar. Los valida con checksum, que es el dato en la posición 7, y si resulta que son validos, ahora si procedemos a implementarlos en la aplicación.
