@@ -19,4 +19,6 @@ Creo que se ve así por que a los datos numéricos que se están enviando le ped
 
 ### Experimento 2
 
+Cómo ya se mencionó previamente, se envían 6 bits. El formato es muy explicativo: Los dos primeros datos con el formato (2b2h) son datos numéricos que piden los bits más significativos y ahí van 4. El 2h simplemente indica que estamos mandando dos booleanos y como un booleano solo tiene dos estados, solo necesita un un bit para expresar true (01) o false (00).
+
 ### Experimento 3
