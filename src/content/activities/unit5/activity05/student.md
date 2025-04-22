@@ -9,8 +9,10 @@ struct.pack('>2h2B', -327, 289, 0, 1)
 FE D9 01 21 00 01
 
 ```py
+data = "{},{},{},{}\n".format(-327, 289, 0, 1)
 ```
 #### Resultado:
+2D 33 32 37 2C 32 38 39 2C 30 2C 31 0A
 
 Ahora, en cuanto a facilidad y uso de recursos, es preferible ASCII, pues la forma en la que está redactado el paquete es más intuitiva que la binaria (no hay que especificar, por ejemplo, el tipo de dato que se va a enviar de la forma 2b2h, como lo hace el binario) y además, el procesamiento de datos ASCII requiere menos líneas de código, pues en vez de recorrer una matriz indicando cuales son los índices que corresponden al valor de una variable, aquí sólo hay que separar por comas y el byte que indica salto de línea es el byte donde acaba el paquete. 
 
