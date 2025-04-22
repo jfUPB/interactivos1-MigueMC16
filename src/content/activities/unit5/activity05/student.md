@@ -22,9 +22,9 @@ Ahora, en cuanto a facilidad y uso de recursos, es preferible ASCII, pues la for
 
 4. Un carácter de sincronización es un elemento en el código que ayuda a controlar los tiempos de ejecución y de recepción de datos, con lo cual se puedan realizar lecturas precisas y correctas. 
 
-5. el checksum comprueba que los bytes enviados 
+5. el checksum comprueba que los bytes enviados, pues es el residuo que queda de agarrar todos los datos y dividirlos por 256. Este será un craácter único de comparación en p5.js. Si el residuo no es igual en p5.js, quiere decir que los bites se han corrompido y no son los mismos que originalmente se enviaron. De ahí la importancia del checksum. 
 
-6. En la función readSerialData()
+6. En la función readSerialData():
 
 * concat() concatena (Nunca mejor dicho) los bytes que se reciben desde el puerto y se guardan en newData. En newData hay un montón de bytes y hay que ponerlos en orden para su correcta lectura
 
