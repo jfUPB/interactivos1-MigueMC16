@@ -3,10 +3,14 @@
 1. En cuanto a eficiencia y velocidad, es preferible el envío con binario, ya que requiere menos bytes para enviar la misma información que el ASCII, como se puede ver en este ejemplo: 
 
 ```py
+struct.pack('>2h2B', -327, 289, 0, 1)
 ```
+#### Resultado: 
+FE D9 01 21 00 01
 
 ```py
 ```
+#### Resultado:
 
 Ahora, en cuanto a facilidad y uso de recursos, es preferible ASCII, pues la forma en la que está redactado el paquete es más intuitiva que la binaria (no hay que especificar, por ejemplo, el tipo de dato que se va a enviar de la forma 2b2h, como lo hace el binario) y además, el procesamiento de datos ASCII requiere menos líneas de código, pues en vez de recorrer una matriz indicando cuales son los índices que corresponden al valor de una variable, aquí sólo hay que separar por comas y el byte que indica salto de línea es el byte donde acaba el paquete. 
 
