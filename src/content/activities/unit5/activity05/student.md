@@ -12,9 +12,9 @@ Ahora, en cuanto a facilidad y uso de recursos, es preferible ASCII, pues la for
 
 2. En necesario para que el micro:bit no lea datos erróneos o desincronizados, indicando donde debe iniciar un paquete de datos y donde se espera que termine, para su correcto almacenamiento y procesamiento. 
 
-3. El framing funciona poniéndole una "cabeza" y una "cola" a un paquete de datos. La cabeza se encarga de indicar el inicio del paquete y la cola simplemente indica el final y es una comprobación de la validez de los datos
+3. El framing funciona poniéndole una "cabeza" y una "cola" a un paquete de datos. La cabeza se encarga de indicar el inicio del paquete y la cola simplemente indica el final y es una comprobación de la validez de los datos.
 
-4. 
+4. Un carácter de sincronización es un elemento en el código que ayuda a controlar los tiempos de ejecución y de recepción de datos, con lo cual se puedan realizar lecturas precisas y correctas. 
 
 5. el checksum comprueba que los bytes enviados 
 
@@ -32,12 +32,12 @@ Ahora, en cuanto a facilidad y uso de recursos, es preferible ASCII, pues la for
 
 * Slice te saca una "tajada" del vector de bytes recolectado. En cambio, splice lo disuelve, por eso no se puede disolver o cortar el vector sin antes sacar una tajada del mismo.
 
-*
+* El reduce es muy útil por que te permite reducir un array a un solo valor, que puede ser un entero, un string, otro array, y por ello es un método tan útil para poder realizar una suma de los elementos de un vector. Sólo necesita que le indiques una función que se encargue de reducir y el valor inicial.
 
 * Se supone que los bytes tienen un checksum original. DE NO TENERLO, significa que están corruptos y que no se pueden usar.
 
 * Continue deja que sigas con la lectura de bytes, pues esto es un flujo constante de información por parte del micro:bit.
 
-*
+* El DataView es un objeto necesario para leer datos binarios que tiene los métodos necesarios para interpretar floats, enteros de 16 o 32 bits, etc. Te ahorra varias conversiones extrayendo datos directamente del buffer. 
 
 * Es necesario hacer las conversiones por que los datos en el buffer son bytes en binario, y no número enteros como los necesitamos en el código. 
