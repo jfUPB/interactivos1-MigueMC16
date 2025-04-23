@@ -13,10 +13,15 @@ Pasaron la pruevba los vectores 1, 2, 3, 4, y 6.
 
 ### Vectores que Fallaron
 
-El vector que no funcionó es el 5. No estoy logrando que se ingrese la contraseña correcta, que se realicen las comprobaciones. Tampoco estoy viendo donde está la falla en el código. 
+El vector que no funcionó es el 5. No estoy logrando que se ingrese la contraseña correcta, que se realicen las comprobaciones. Tampoco estoy viendo donde está la falla en el código. Además, está ocurriendo lo siguiente: después de la primera ejecución del código, al acceder de nuevo a CONFIG y oprimir T, se resetea CONFIG y tengo que volver a oprimir T para ir a COUNT. Ese problema pasa específicamente cuando dejo que la máquina de estados llegue a los estados WIN o LOOSE, por que si accedo a CONFIG desde COUNT, el problema con el evento T no ocurre. 
+
+### Correcciones
+
+El evento T se resetea antes de siquiera poder ser usado, con lo que es preferible añadir el reseteo de los eventos de forma más retrasada. De entre las opciones dispoibles, se colocó dicho reseteo después de tarea bomba () en el ciclo while. Con esto en mente, también corregí la lógica de máquina de estados para que no se acceda al estado INIT más de una vez. Ahora los vectores funcionan al completo.
 
 ### Código Nuevo
 
+```py
 from microbit import *
 import utime
 import music
@@ -40,7 +45,6 @@ music_playing = False
 
 # Variables globales de eventos
 
-```py
 eventA = False
 eventB = False
 eventT = False
