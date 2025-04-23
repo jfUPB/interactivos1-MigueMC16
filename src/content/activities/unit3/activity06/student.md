@@ -14,3 +14,146 @@ Pasaron la pruevba los vectores 1, 2, 3, 4, y 6.
 ### Vectores que Fallaron
 
 El vector que no funcionó es el 5. No estoy logrando que se ingrese la contraseña correcta, que se realicen las comprobaciones. Tampoco estoy viendo donde está la falla en el código. 
+
+### Código Nuevo
+
+from microbit import *
+import utime
+import music
+
+# Estados de la máquina
+STATE_INIT = 0
+STATE_CONFIG = 1
+STATE_COUNT = 2
+STATE_WIN = 3
+STATE_LOOSE = 4
+
+COUNT_INTERVAL = 1000
+waitingTime = utime.ticks_ms()
+Password = ["A", "B", "A"]
+solution = []
+
+# Estado inicial
+current_state = STATE_INIT
+countdown = 20000
+music_playing = False
+
+# Variables globales de eventos
+
+```py
+eventA = False
+eventB = False
+eventT = False
+eventS = False
+
+def tareaBomba():
+    global current_state, countdown, music_playing, eventA, eventB, eventT, eventS, waitingTime, solution, Password
+
+    if current_state == STATE_INIT:
+        countdown = 20000
+        solution = []
+        current_state = STATE_CONFIG  # Sólo se ejecuta una vez
+
+    if current_state == STATE_CONFIG:
+        music.stop()
+        music_playing = False
+        if eventT:
+            current_state = STATE_COUNT
+            display.clear()
+        elif eventA:
+            countdown = min(countdown + 1000, 60000)
+            display.show(int(countdown / 1000))
+        elif eventB:
+            countdown = max(countdown - 1000, 1000)
+            display.show(int(countdown / 1000))
+        else:
+            display.show(int(countdown / 1000))
+
+    if current_state == STATE_COUNT:
+        display.clear()
+        if utime.ticks_diff(utime.ticks_ms(), waitingTime) > COUNT_INTERVAL:
+            countdown -= 1000
+            waitingTime = utime.ticks_ms()
+            display.set_pixel(2, 2, 9)
+            sleep(100)
+            display.clear()
+
+        if eventA and len(solution) < len(Password):
+            solution.append("A")
+            eventA = False
+
+        if eventB and len(solution) < len(Password):
+            solution.append("B")
+            eventB = False
+
+        if len(solution) == len(Password):
+            if solution == Password:
+                current_state = STATE_WIN
+            else:
+                solution = []
+
+        if countdown <= 0:
+            current_state = STATE_LOOSE
+
+        if eventS:
+            eventS = False
+            countdown = 20000
+            solution = []
+            current_state = STATE_CONFIG
+
+    if current_state == STATE_WIN:
+        display.show(Image.HAPPY)
+        if not music_playing:
+            music_playing = True
+            music.play(music.BIRTHDAY, wait=False)
+
+        if eventS:
+            eventS = False
+            countdown = 20000
+            solution = []
+            current_state = STATE_CONFIG
+
+    if current_state == STATE_LOOSE:
+        display.show(Image.SAD)
+        if not music_playing:
+            music_playing = True
+            music.play(music.DADADADUM, wait=False)
+
+        if eventS:
+            eventS = False
+            countdown = 20000
+            solution = []
+            current_state = STATE_CONFIG
+
+def tareaEventos():
+    global eventA, eventB, eventT, eventS
+
+    if uart.any():
+        data = uart.read(1)
+        if data:
+            if data[0] == ord('A'):
+                eventA = True
+            if data[0] == ord('B'):
+                eventB = True
+            if data[0] == ord('T'):
+                eventT = True
+            if data[0] == ord('S'):
+                eventS = True
+
+    if button_a.was_pressed():
+        eventA = True
+    if button_b.was_pressed():
+        eventB = True
+    if pin_logo.is_touched():
+        eventT = True
+    if accelerometer.was_gesture('shake'):
+        eventS = True
+
+while True:
+    tareaEventos()
+    tareaBomba()
+    eventT = False
+    eventA = False
+    eventB = False
+    eventS = False
+```
