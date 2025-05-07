@@ -6,6 +6,8 @@ Si detengo el servidor, sale un mensaje indicando que no se puede acceder al sit
 
 #### Experimento 2
 
+Página 1 no fue capaz de funcionar correctamente por que no tenía la información inicial de la página 2. Es útil enviar el estado inicial de cada página al conectarse para que ambas partan desde determinado punto y no tengan que esperar a que la otra se mueva para finalmente recibir datos. 
+
 #### Experimento 3
 
 #### Experimento 4
