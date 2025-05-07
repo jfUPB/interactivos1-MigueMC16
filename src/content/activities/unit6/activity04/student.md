@@ -10,6 +10,8 @@ Página 1 no fue capaz de funcionar correctamente por que no tenía la informaci
 
 #### Experimento 3
 
+Se dispara el log y muestra los datos de page1, pues lo que está esperando la página dos es recogerlos diréctamente del servidor. Precisamente como page1 es la que envía el paquete de datos getdata y page2 solo lo recibe, no se dispara ningún log cuando muevo page2
+
 #### Experimento 4
 
 #### Experimento 5
